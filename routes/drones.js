@@ -58,6 +58,7 @@ router.post('/drones/:id/edit', (req, res, next) => {
 router.post('/drones/:id/delete', async (req, res, next) => {
   // Iteration #5: Delete the drone
   const id = req.params.id;
+  console.log(id);
 	try {
 		const count = await Drone.findByIdAndDelete(id);
 		console.log("count: ", count);
