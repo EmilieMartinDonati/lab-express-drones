@@ -8,7 +8,7 @@ router.get('/drones', (req, res, next) => {
   // Iteration #2: List the drones
   Drone.find().then((dbResponse) => {
     console.log("Database response:", dbResponse);
-    res.render("drones/dronesList.hbs", {
+    res.render("../views/drones/list.hbs", {
       drones : dbResponse,
     });
   })
@@ -55,7 +55,7 @@ router.post('/drones/:id/edit', (req, res, next) => {
 		.catch((e) => console.error(e));
 });
 
-router.post('/drones/:id/delete', (req, res, next) => {
+router.post('/drones/:id/delete', async (req, res, next) => {
   // Iteration #5: Delete the drone
   const id = req.params.id;
 	try {
